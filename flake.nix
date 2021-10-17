@@ -28,9 +28,9 @@
           # github options
 
           {{#options}}
-          - {{label}}
-            description: {{description}}</br>
-            defined: [{{defined}}]({{url}})</br>
+          - {{label}} <br>
+            description: {{description}}<br>
+            defined: [{{defined}}]({{url}})<br>
           {{/options}}
           '';
           in
