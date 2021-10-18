@@ -14,7 +14,7 @@
           inherit pkgs;
           moduleRootPath = toString ./.;
           urlPrefix =
-            "https://github.com/terranix/module-github/tree/main/modules";
+            "https://github.com/terranix/terranix-module-github/tree/main/module";
           terranix_modules = [{ imports = [ ./default.nix ]; }];
         };
       in {
@@ -27,11 +27,18 @@
           let mustacheTemplate = pkgs.writeText "template.mustache" ''
           # github options
 
+          <ul>
           {{#options}}
-          - {{label}} <br>
-            description: {{description}}<br>
-            defined: [{{defined}}]({{url}})<br>
+          <li>
+            <b><u>{{label}}</u></b><br>
+            <b>type</b>: {{type}}<br>
+            <b>default</b>: {{default}}<br>
+            <b>example</b>: {{example}}<br>
+            <b>defined</b>: <a href="{{url}}">{{defined}}</a><br>
+            <b>description</b>: {{description}}<br>
+          </li>
           {{/options}}
+          </ul>
           '';
           in
           {
@@ -49,6 +56,7 @@
             }' | ${pkgs.jq}/bin/jq -s '{ options: . }' \
             | ${pkgs.mustache-go}/bin/mustache ${mustacheTemplate} \
             > options.md
+            cp -f ${terranixOptions}/options.json .
           '');
         };
         defaultApp = self.apps.${system}.options;

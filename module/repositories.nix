@@ -5,6 +5,9 @@ let cfg = config.github.repositories;
 in {
   options.github.repositories = mkOption {
     default = { };
+    description = ''
+      create and manage github repositories.
+    '';
     type = with types;
       attrsOf (submodule ({ name, ... }: {
         options = {

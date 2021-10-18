@@ -4,6 +4,11 @@ let cfg = config.github.teams;
 in {
   options.github.teams = mkOption {
     default = { };
+    description = ''
+      create and manage github teams.
+      You can use `github.repositories.<name>.teams`
+      to append your managed repositores to a team.
+    '';
     type = with types;
       attrsOf (submodule ({ name, ... }: {
         options = {
@@ -14,14 +19,24 @@ in {
           name = mkOption {
             default = name;
             type = str;
+            description = ''
+              name of the team.
+            '';
           };
           description = mkOption {
             default = null;
             type = nullOr str;
+            description = ''
+              description of the team.
+            '';
           };
           privacy = mkOption {
             default = null;
             type = nullOr (enum [ "secret" "closed" ]);
+            description = ''
+              secret means not visible for the public.
+              closed means visible for the public.
+            '';
           };
 
           # special parameter
@@ -41,14 +56,28 @@ in {
           members = mkOption {
             default = [ ];
             type = listOf str;
+            description = ''
+              members of the team, have less permissions than maintainers.
+            '';
+            example = ["mrvandalo"];
           };
           maintainers = mkOption {
             default = [ ];
             type = listOf str;
+            description = ''
+              maintainers of the team, have more permissions than members.
+            '';
+            example = ["mrvandalo"];
           };
           repositories = mkOption {
             default = [ ];
             type = listOf str;
+            description = ''
+              A list of Github repositories, belonging to this team.
+              You can use `github.repositories.<name>.teams`
+              alternatively to append you managed repository to a team.
+            '';
+            example = ["terranix" "website"];
           };
 
         };

@@ -1,0 +1,1132 @@
+{
+  "github.milestones": {
+    "declarations": [
+      {
+        "channelPath": "/module/milestones.nix",
+        "path": "module/milestones.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/milestones.nix"
+      }
+    ],
+    "default": [],
+    "description": "Define milestones.\nThis parameter is a bit complicated because the\nterraform provider resource is a bit complicated designed.\nYou have to create a list for each repository.\n",
+    "example": [
+      {
+        "milestones": [
+          {
+            "state": "closed",
+            "title": "1.0"
+          },
+          {
+            "title": "2.0"
+          }
+        ],
+        "owner": "terranix",
+        "repository": "terranix"
+      }
+    ],
+    "loc": [
+      "github",
+      "milestones"
+    ],
+    "readOnly": false,
+    "type": "list of submodules"
+  },
+  "github.milestones.*.milestones": {
+    "declarations": [
+      {
+        "channelPath": "/module/milestones.nix",
+        "path": "module/milestones.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/milestones.nix"
+      }
+    ],
+    "default": [],
+    "description": "list of milestones for the given repository",
+    "loc": [
+      "github",
+      "milestones",
+      "*",
+      "milestones"
+    ],
+    "readOnly": false,
+    "type": "list of submodules"
+  },
+  "github.milestones.*.milestones.*.description": {
+    "declarations": [
+      {
+        "channelPath": "/module/milestones.nix",
+        "path": "module/milestones.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/milestones.nix"
+      }
+    ],
+    "default": null,
+    "description": "description of the milestone",
+    "loc": [
+      "github",
+      "milestones",
+      "*",
+      "milestones",
+      "*",
+      "description"
+    ],
+    "readOnly": false,
+    "type": "null or string"
+  },
+  "github.milestones.*.milestones.*.due_date": {
+    "declarations": [
+      {
+        "channelPath": "/module/milestones.nix",
+        "path": "module/milestones.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/milestones.nix"
+      }
+    ],
+    "default": null,
+    "description": "due date of the milestone.\nFormat is yyyy-mm-dd.\n",
+    "loc": [
+      "github",
+      "milestones",
+      "*",
+      "milestones",
+      "*",
+      "due_date"
+    ],
+    "readOnly": false,
+    "type": "null or string"
+  },
+  "github.milestones.*.milestones.*.state": {
+    "declarations": [
+      {
+        "channelPath": "/module/milestones.nix",
+        "path": "module/milestones.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/milestones.nix"
+      }
+    ],
+    "default": null,
+    "description": "state of the milestone",
+    "loc": [
+      "github",
+      "milestones",
+      "*",
+      "milestones",
+      "*",
+      "state"
+    ],
+    "readOnly": false,
+    "type": "null or one of \"open\", \"closed\""
+  },
+  "github.milestones.*.milestones.*.title": {
+    "declarations": [
+      {
+        "channelPath": "/module/milestones.nix",
+        "path": "module/milestones.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/milestones.nix"
+      }
+    ],
+    "description": "title of the milestone.\n",
+    "example": "1.0",
+    "loc": [
+      "github",
+      "milestones",
+      "*",
+      "milestones",
+      "*",
+      "title"
+    ],
+    "readOnly": false,
+    "type": "string"
+  },
+  "github.milestones.*.owner": {
+    "declarations": [
+      {
+        "channelPath": "/module/milestones.nix",
+        "path": "module/milestones.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/milestones.nix"
+      }
+    ],
+    "description": "owner of the repository.\nsame value which you would put in github.provider.owner.\n",
+    "loc": [
+      "github",
+      "milestones",
+      "*",
+      "owner"
+    ],
+    "readOnly": false,
+    "type": "string"
+  },
+  "github.milestones.*.repository": {
+    "declarations": [
+      {
+        "channelPath": "/module/milestones.nix",
+        "path": "module/milestones.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/milestones.nix"
+      }
+    ],
+    "description": "name of the repository",
+    "loc": [
+      "github",
+      "milestones",
+      "*",
+      "repository"
+    ],
+    "readOnly": false,
+    "type": "string"
+  },
+  "github.provider.base_url": {
+    "declarations": [
+      {
+        "channelPath": "/module/provider.nix",
+        "path": "module/provider.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/provider.nix"
+      }
+    ],
+    "default": null,
+    "description": "This is the target GitHub base API endpoint.\nProviding a value is a requirement when working with GitHub Enterprise.\nIt is optional to provide this value and it can also be sourced from the\n`GITHUB_BASE_URL` environment variable.\nThe value must end with a slash.\n",
+    "example": "https://terraformtesting-ghe.westus.cloudapp.azure.com/",
+    "loc": [
+      "github",
+      "provider",
+      "base_url"
+    ],
+    "readOnly": false,
+    "type": "null or string"
+  },
+  "github.provider.enable": {
+    "declarations": [
+      {
+        "channelPath": "/module/provider.nix",
+        "path": "module/provider.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/provider.nix"
+      }
+    ],
+    "default": false,
+    "description": "Whether to enable github.",
+    "example": true,
+    "loc": [
+      "github",
+      "provider",
+      "enable"
+    ],
+    "readOnly": false,
+    "type": "boolean"
+  },
+  "github.provider.owner": {
+    "declarations": [
+      {
+        "channelPath": "/module/provider.nix",
+        "path": "module/provider.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/provider.nix"
+      }
+    ],
+    "default": null,
+    "description": "Organization or individual user account to manage.\nIt is optional to provide this value and it can also be sourced from the\n`GITHUB_OWNER` environment variable.\nWhen not provided and a `github.provider.token` is available,\nthe individual user account owning the token will be used.\nWhen not provided and no `token` is available,\nthe provider may not function correctly\n",
+    "loc": [
+      "github",
+      "provider",
+      "owner"
+    ],
+    "readOnly": false,
+    "type": "null or string"
+  },
+  "github.provider.token": {
+    "declarations": [
+      {
+        "channelPath": "/module/provider.nix",
+        "path": "module/provider.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/provider.nix"
+      }
+    ],
+    "default": null,
+    "description": "A GitHub OAuth or Personal Access Token.\nIt can also be sourced from the\n`GITHUB_TOKEN` environment variable.\nhen not provided or made available via the\n`GITHUB_TOKEN` environment variable,\nthe provider can only access resources available anonymously.\n",
+    "loc": [
+      "github",
+      "provider",
+      "token"
+    ],
+    "readOnly": false,
+    "type": "null or string"
+  },
+  "github.provider.version": {
+    "declarations": [
+      {
+        "channelPath": "/module/provider.nix",
+        "path": "module/provider.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/provider.nix"
+      }
+    ],
+    "default": null,
+    "description": "version of the github provider to use.\n",
+    "loc": [
+      "github",
+      "provider",
+      "version"
+    ],
+    "readOnly": false,
+    "type": "null or string"
+  },
+  "github.repositories": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "default": {},
+    "description": "create and manage github repositories.\n",
+    "loc": [
+      "github",
+      "repositories"
+    ],
+    "readOnly": false,
+    "type": "attribute set of submodules"
+  },
+  "github.repositories.<name>.allow_merge_commit": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "default": null,
+    "description": "Set to false to disable merge commits on the repository.",
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "allow_merge_commit"
+    ],
+    "readOnly": false,
+    "type": "null or boolean"
+  },
+  "github.repositories.<name>.allow_rebase_merge": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "default": null,
+    "description": "Set to false to disable rebase merges on the repository.",
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "allow_rebase_merge"
+    ],
+    "readOnly": false,
+    "type": "null or boolean"
+  },
+  "github.repositories.<name>.allow_squash_merge": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "default": null,
+    "description": "Set to false to disable squash merges on the repository.",
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "allow_squash_merge"
+    ],
+    "readOnly": false,
+    "type": "null or boolean"
+  },
+  "github.repositories.<name>.archive_on_destroy": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "default": null,
+    "description": "Set to true to archive the repository instead of deleting on destroy.",
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "archive_on_destroy"
+    ],
+    "readOnly": false,
+    "type": "null or boolean"
+  },
+  "github.repositories.<name>.archived": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "default": null,
+    "description": "Specifies if the repository should be archived. Defaults to false",
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "archived"
+    ],
+    "readOnly": false,
+    "type": "null or boolean"
+  },
+  "github.repositories.<name>.auto_init": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "default": null,
+    "description": "Set to true to produce an initial commit in the repository.",
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "auto_init"
+    ],
+    "readOnly": false,
+    "type": "null or boolean"
+  },
+  "github.repositories.<name>.branches": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "default": null,
+    "description": "branches of repository\n",
+    "example": [
+      "main",
+      "develop"
+    ],
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "branches"
+    ],
+    "readOnly": false,
+    "type": "list of strings"
+  },
+  "github.repositories.<name>.colaborators": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "default": {},
+    "description": "collaborators of repository\n",
+    "example": [
+      "main",
+      "develop"
+    ],
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "colaborators"
+    ],
+    "readOnly": false,
+    "type": "attribute set of submodules"
+  },
+  "github.repositories.<name>.colaborators.<name>.name": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "default": "‹name›",
+    "description": "github name",
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "colaborators",
+      "<name>",
+      "name"
+    ],
+    "readOnly": false,
+    "type": "string"
+  },
+  "github.repositories.<name>.colaborators.<name>.permission": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "default": null,
+    "description": "permissions of this collaborator",
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "colaborators",
+      "<name>",
+      "permission"
+    ],
+    "readOnly": false,
+    "type": "null or one of \"pull\", \"push\", \"maintain\", \"triage\", \"admin\""
+  },
+  "github.repositories.<name>.default_branch": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "default": null,
+    "description": "default branch of the repository\n",
+    "example": "main",
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "default_branch"
+    ],
+    "readOnly": false,
+    "type": "null or string"
+  },
+  "github.repositories.<name>.delete_branch_on_merge": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "default": null,
+    "description": "Automatically delete head branch after a pull request is merged. Defaults to false",
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "delete_branch_on_merge"
+    ],
+    "readOnly": false,
+    "type": "null or boolean"
+  },
+  "github.repositories.<name>.description": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "default": null,
+    "description": "description of the repository",
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "description"
+    ],
+    "readOnly": false,
+    "type": "null or string"
+  },
+  "github.repositories.<name>.extraConfig": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "default": {},
+    "description": "To set additional parameters from\nhttps://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository\nwhich are not covered yet.\nextraConfig will override every other parameter provider by this github terranix module.\n",
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "extraConfig"
+    ],
+    "readOnly": false,
+    "type": "attribute set"
+  },
+  "github.repositories.<name>.gitignore_template": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "default": null,
+    "description": "Use the [name of the template](https://github.com/github/gitignore) without the extension.\n",
+    "example": "Haskell",
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "gitignore_template"
+    ],
+    "readOnly": false,
+    "type": "null or string"
+  },
+  "github.repositories.<name>.has_downloads": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "default": null,
+    "description": "Set to true to enable the (deprecated) downloads features on the repository.",
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "has_downloads"
+    ],
+    "readOnly": false,
+    "type": "null or boolean"
+  },
+  "github.repositories.<name>.has_issues": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "default": null,
+    "description": "should the repository have issue tracking",
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "has_issues"
+    ],
+    "readOnly": false,
+    "type": "null or boolean"
+  },
+  "github.repositories.<name>.has_projects": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "default": null,
+    "description": "should the repository have projects",
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "has_projects"
+    ],
+    "readOnly": false,
+    "type": "null or boolean"
+  },
+  "github.repositories.<name>.has_wiki": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "default": null,
+    "description": "should the repository have a wiki",
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "has_wiki"
+    ],
+    "readOnly": false,
+    "type": "null or boolean"
+  },
+  "github.repositories.<name>.homepage_url": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "default": null,
+    "description": "homepage url of the repository",
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "homepage_url"
+    ],
+    "readOnly": false,
+    "type": "null or string"
+  },
+  "github.repositories.<name>.is_template": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "default": null,
+    "description": "is this repository a template",
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "is_template"
+    ],
+    "readOnly": false,
+    "type": "null or boolean"
+  },
+  "github.repositories.<name>.license_template": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "default": null,
+    "description": "Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension.\n",
+    "example": "mpl-2.0",
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "license_template"
+    ],
+    "readOnly": false,
+    "type": "null or string"
+  },
+  "github.repositories.<name>.name": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "default": "‹name›",
+    "description": "name of the repository",
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "name"
+    ],
+    "readOnly": false,
+    "type": "string"
+  },
+  "github.repositories.<name>.pages": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "default": null,
+    "description": "The repository's GitHub Pages configuration. ",
+    "example": {
+      "pages": {
+        "source": {
+          "branch": "gh-pages"
+        }
+      }
+    },
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "pages"
+    ],
+    "readOnly": false,
+    "type": "null or submodule"
+  },
+  "github.repositories.<name>.pages.cname": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "description": "The custom domain for the repository. This can only be set after the repository has been created.",
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "pages",
+      "cname"
+    ],
+    "readOnly": false,
+    "type": "null or string"
+  },
+  "github.repositories.<name>.pages.source": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "description": "The source branch and directory for the rendered Pages site.",
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "pages",
+      "source"
+    ],
+    "readOnly": false,
+    "type": "submodule"
+  },
+  "github.repositories.<name>.pages.source.branch": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "description": "The repository branch used to publish the site's source files.",
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "pages",
+      "source",
+      "branch"
+    ],
+    "readOnly": false,
+    "type": "string"
+  },
+  "github.repositories.<name>.pages.source.path": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "description": "The repository directory from which the site publishes",
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "pages",
+      "source",
+      "path"
+    ],
+    "readOnly": false,
+    "type": "null or string"
+  },
+  "github.repositories.<name>.teams": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "default": [],
+    "description": "list of teams this repository belongs to.\nconvenience function, which appends this repository to github.teams;\n",
+    "example": "main",
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "teams"
+    ],
+    "readOnly": false,
+    "type": "list of strings"
+  },
+  "github.repositories.<name>.template": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "default": null,
+    "description": "Use a template repository to create this resource.",
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "template"
+    ],
+    "readOnly": false,
+    "type": "null or submodule"
+  },
+  "github.repositories.<name>.template.owner": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "description": "The GitHub organization or user the template repository is owned by.",
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "template",
+      "owner"
+    ],
+    "readOnly": false,
+    "type": "string"
+  },
+  "github.repositories.<name>.template.repository": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "description": "The name of the template repository.",
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "template",
+      "repository"
+    ],
+    "readOnly": false,
+    "type": "string"
+  },
+  "github.repositories.<name>.topics": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "default": [],
+    "description": "list of topics for the repository",
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "topics"
+    ],
+    "readOnly": false,
+    "type": "list of strings"
+  },
+  "github.repositories.<name>.visibility": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "default": null,
+    "description": "wether of the repository is private or not",
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "visibility"
+    ],
+    "readOnly": false,
+    "type": "null or one of \"private\", \"public\", \"internal\""
+  },
+  "github.repositories.<name>.vulnerability_alerts": {
+    "declarations": [
+      {
+        "channelPath": "/module/repositories.nix",
+        "path": "module/repositories.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
+      }
+    ],
+    "default": null,
+    "description": "Set to true to enable security alerts for vulnerable dependencies.\nEnabling requires alerts to be enabled on the owner level\n",
+    "loc": [
+      "github",
+      "repositories",
+      "<name>",
+      "vulnerability_alerts"
+    ],
+    "readOnly": false,
+    "type": "null or boolean"
+  },
+  "github.teams": {
+    "declarations": [
+      {
+        "channelPath": "/module/teams.nix",
+        "path": "module/teams.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/teams.nix"
+      }
+    ],
+    "default": {},
+    "description": "create and manage github teams.\nYou can use `github.repositories.<name>.teams`\nto append your managed repositores to a team.\n",
+    "loc": [
+      "github",
+      "teams"
+    ],
+    "readOnly": false,
+    "type": "attribute set of submodules"
+  },
+  "github.teams.<name>.description": {
+    "declarations": [
+      {
+        "channelPath": "/module/teams.nix",
+        "path": "module/teams.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/teams.nix"
+      }
+    ],
+    "default": null,
+    "description": "description of the team.\n",
+    "loc": [
+      "github",
+      "teams",
+      "<name>",
+      "description"
+    ],
+    "readOnly": false,
+    "type": "null or string"
+  },
+  "github.teams.<name>.extraConfig": {
+    "declarations": [
+      {
+        "channelPath": "/module/teams.nix",
+        "path": "module/teams.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/teams.nix"
+      }
+    ],
+    "default": {},
+    "description": "To set additional parameters from\nhttps://registry.terraform.io/providers/integrations/github/latest/docs/resources/team\nwhich are not covered yet.\nextraConfig will override every other parameter provider by this github terranix module.\n",
+    "loc": [
+      "github",
+      "teams",
+      "<name>",
+      "extraConfig"
+    ],
+    "readOnly": false,
+    "type": "attribute set"
+  },
+  "github.teams.<name>.maintainers": {
+    "declarations": [
+      {
+        "channelPath": "/module/teams.nix",
+        "path": "module/teams.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/teams.nix"
+      }
+    ],
+    "default": [],
+    "description": "maintainers of the team, have more permissions than members.\n",
+    "example": [
+      "mrvandalo"
+    ],
+    "loc": [
+      "github",
+      "teams",
+      "<name>",
+      "maintainers"
+    ],
+    "readOnly": false,
+    "type": "list of strings"
+  },
+  "github.teams.<name>.members": {
+    "declarations": [
+      {
+        "channelPath": "/module/teams.nix",
+        "path": "module/teams.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/teams.nix"
+      }
+    ],
+    "default": [],
+    "description": "members of the team, have less permissions than maintainers.\n",
+    "example": [
+      "mrvandalo"
+    ],
+    "loc": [
+      "github",
+      "teams",
+      "<name>",
+      "members"
+    ],
+    "readOnly": false,
+    "type": "list of strings"
+  },
+  "github.teams.<name>.name": {
+    "declarations": [
+      {
+        "channelPath": "/module/teams.nix",
+        "path": "module/teams.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/teams.nix"
+      }
+    ],
+    "default": "‹name›",
+    "description": "name of the team.\n",
+    "loc": [
+      "github",
+      "teams",
+      "<name>",
+      "name"
+    ],
+    "readOnly": false,
+    "type": "string"
+  },
+  "github.teams.<name>.privacy": {
+    "declarations": [
+      {
+        "channelPath": "/module/teams.nix",
+        "path": "module/teams.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/teams.nix"
+      }
+    ],
+    "default": null,
+    "description": "secret means not visible for the public.\nclosed means visible for the public.\n",
+    "loc": [
+      "github",
+      "teams",
+      "<name>",
+      "privacy"
+    ],
+    "readOnly": false,
+    "type": "null or one of \"secret\", \"closed\""
+  },
+  "github.teams.<name>.repositories": {
+    "declarations": [
+      {
+        "channelPath": "/module/teams.nix",
+        "path": "module/teams.nix",
+        "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/teams.nix"
+      }
+    ],
+    "default": [],
+    "description": "A list of Github repositories, belonging to this team.\nYou can use `github.repositories.<name>.teams`\nalternatively to append you managed repository to a team.\n",
+    "example": [
+      "terranix",
+      "website"
+    ],
+    "loc": [
+      "github",
+      "teams",
+      "<name>",
+      "repositories"
+    ],
+    "readOnly": false,
+    "type": "list of strings"
+  }
+}
