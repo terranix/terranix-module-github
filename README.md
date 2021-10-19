@@ -1,5 +1,5 @@
 # terranix github module
 
-> work in progress
+An opionionated github module for terranix.
 
-see [options](./options.md).
+have a look at the [options.md](./options.md) or the [options.json](options.json).
