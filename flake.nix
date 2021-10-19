@@ -20,8 +20,6 @@
       in {
         packages.options = terranixOptions;
         defaultPackage = self.packages.${system}.options;
-        terranixModules.github = import ./default.nix;
-        terranixModule.imports = [ self.terranixModules.github ];
         # nix run ".#options"
         apps.options =
           let mustacheTemplate = pkgs.writeText "template.mustache" ''
@@ -60,5 +58,8 @@
           '');
         };
         defaultApp = self.apps.${system}.options;
-      });
+      }) // {
+        terranixModules.github = import ./default.nix;
+        terranixModule.imports = [ self.terranixModules.github ];
+      };
 }
