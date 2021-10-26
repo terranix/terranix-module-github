@@ -60,6 +60,6 @@
         defaultApp = self.apps.${system}.options;
       }) // {
         terranixModules.github = import ./default.nix;
-        defaultTerranixModule.imports = [ self.terranixModules.github ];
+        terranixModule.imports = [ self.terranixModules.github ];
       };
 }
