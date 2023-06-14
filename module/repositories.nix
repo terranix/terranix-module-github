@@ -276,20 +276,25 @@ in {
   };
 
   config = mkMerge [{
-    resource.github_repository = (mapAttrs (_: value:
-      {
-        inherit (value)
-          name description homepage_url visibility has_issues has_projects
-          has_wiki is_template allow_merge_commit allow_squash_merge
-          allow_rebase_merge delete_branch_on_merge has_downloads auto_init
-          gitignore_template license_template archived archive_on_destroy topics
-          template vulnerability_alerts pages;
-      } // value.extraConfig) cfg);
+    resource.github_repository = (mapAttrs
+      (_: value:
+        {
+          inherit (value)
+            name description homepage_url visibility has_issues has_projects
+            has_wiki is_template allow_merge_commit allow_squash_merge
+            allow_rebase_merge delete_branch_on_merge has_downloads auto_init
+            gitignore_template license_template archived archive_on_destroy topics
+            template vulnerability_alerts pages;
+        } // value.extraConfig)
+      cfg);
 
-    github.teams = let
-      team_for_repositories = zipAttrs (flatten (mapAttrsToList
-        (_: value: (map (team: { ${team} = value.name; }) value.teams)) cfg));
-    in mapAttrs (_: repositories: { inherit repositories; })
-    team_for_repositories;
+    github.teams =
+      let
+        team_for_repositories = zipAttrs (flatten (mapAttrsToList
+          (_: value: (map (team: { ${team} = value.name; }) value.teams))
+          cfg));
+      in
+      mapAttrs (_: repositories: { inherit repositories; })
+        team_for_repositories;
   }];
 }

@@ -15,8 +15,8 @@ in {
         owner = "terranix";
         repository = "terranix";
         milestones = [
-          {title = "1.0"; state = "closed";}
-          {title = "2.0";}
+          { title = "1.0"; state = "closed"; }
+          { title = "2.0"; }
         ];
       }
     ];
@@ -47,7 +47,7 @@ in {
                   example = "1.0";
                 };
                 state = mkOption {
-                  type = nullOr (enum["open" "closed"]);
+                  type = nullOr (enum [ "open" "closed" ]);
                   default = null;
                   description = "state of the milestone";
                 };
@@ -74,17 +74,21 @@ in {
   config = {
     resource.github_repository_milestone = mkMerge (flatten (map
       ({ owner, repository, milestones, ... }:
-        (map ({ title, state, description, due_date }:
-          let
-            name = replaceStrings [ "." "," "/" ] [ "_" "_" "_" ]
-              "${owner}_${repository}_${title}";
-          in {
-            ${name} = {
-              inherit title state description due_date owner repository;
-            };
-          }) milestones)
+        (map
+          ({ title, state, description, due_date }:
+            let
+              name = replaceStrings [ "." "," "/" ] [ "_" "_" "_" ]
+                "${owner}_${repository}_${title}";
+            in
+            {
+              ${name} = {
+                inherit title state description due_date owner repository;
+              };
+            })
+          milestones)
 
-      ) cfg));
+      )
+      cfg));
 
   };
 

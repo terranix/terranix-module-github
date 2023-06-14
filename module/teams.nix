@@ -59,7 +59,7 @@ in {
             description = ''
               members of the team, have less permissions than maintainers.
             '';
-            example = ["mrvandalo"];
+            example = [ "mrvandalo" ];
           };
           maintainers = mkOption {
             default = [ ];
@@ -67,7 +67,7 @@ in {
             description = ''
               maintainers of the team, have more permissions than members.
             '';
-            example = ["mrvandalo"];
+            example = [ "mrvandalo" ];
           };
           repositories = mkOption {
             default = [ ];
@@ -77,7 +77,7 @@ in {
               You can use `github.repositories.<name>.teams`
               alternatively to append you managed repository to a team.
             '';
-            example = ["terranix" "website"];
+            example = [ "terranix" "website" ];
           };
 
         };
@@ -88,37 +88,45 @@ in {
     let mergeAll = function: mkMerge (flatten (mapAttrsToList function cfg));
     in mkIf (cfg != { }) {
 
-      resource.github_team = mapAttrs (name: value:
-        {
-          inherit (value) name description privacy;
-        } // value.extraConfig) cfg;
+      resource.github_team = mapAttrs
+        (name: value:
+          {
+            inherit (value) name description privacy;
+          } // value.extraConfig)
+        cfg;
 
       resource.github_team_membership = mergeAll (team_name:
         { name, maintainers, members, ... }:
-        (imap0 (index: maintainer: {
-          "${team_name}_maintainer_${toString index}" = {
-            team_id = "\${github_team.${team_name}.id}";
-            username = maintainer;
-            role = "maintainer";
-          };
-        }) (unique maintainers)) ++
+        (imap0
+          (index: maintainer: {
+            "${team_name}_maintainer_${toString index}" = {
+              team_id = "\${github_team.${team_name}.id}";
+              username = maintainer;
+              role = "maintainer";
+            };
+          })
+          (unique maintainers)) ++
 
-        (imap0 (index: member: {
-          "${team_name}_member_${toString index}" = {
-            team_id = "\${github_team.${team_name}.id}";
-            username = member;
-            role = "member";
-          };
-        }) (unique members)));
+        (imap0
+          (index: member: {
+            "${team_name}_member_${toString index}" = {
+              team_id = "\${github_team.${team_name}.id}";
+              username = member;
+              role = "member";
+            };
+          })
+          (unique members)));
 
       resource.github_team_repository = mergeAll (team_name:
         { repositories, ... }:
-        imap0 (index: repository: {
-          "${team_name}_repository_${toString index}" = {
-            team_id = "\${github_team.${team_name}.id}";
-            inherit repository;
-          };
-        }) (unique repositories));
+        imap0
+          (index: repository: {
+            "${team_name}_repository_${toString index}" = {
+              team_id = "\${github_team.${team_name}.id}";
+              inherit repository;
+            };
+          })
+          (unique repositories));
     };
 
 }
