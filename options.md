@@ -377,9 +377,9 @@ extraConfig will override every other parameter provider by this github terranix
 </li>
 <li>
   <b><u>github.repositories.&lt;name&gt;.teams</u></b><br>
-  <b>type</b>: list of strings<br>
-  <b>default</b>: []<br>
-  <b>example</b>: &#34;main&#34;<br>
+  <b>type</b>: attribute set of one of &#34;pull&#34;, &#34;triage&#34;, &#34;push&#34;, &#34;maintain&#34;, &#34;admin&#34;s<br>
+  <b>default</b>: {}<br>
+  <b>example</b>: null<br>
   <b>defined</b>: <a href="https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix">module/repositories.nix</a><br>
   <b>description</b>: list of teams this repository belongs to.
 convenience function, which appends this repository to github.teams;
@@ -506,9 +506,9 @@ closed means visible for the public.
 </li>
 <li>
   <b><u>github.teams.&lt;name&gt;.repositories</u></b><br>
-  <b>type</b>: list of strings<br>
-  <b>default</b>: []<br>
-  <b>example</b>: [&#34;terranix&#34;,&#34;website&#34;]<br>
+  <b>type</b>: attribute set of one of &#34;pull&#34;, &#34;triage&#34;, &#34;push&#34;, &#34;maintain&#34;, &#34;admin&#34;s<br>
+  <b>default</b>: {}<br>
+  <b>example</b>: {&#34;terranix&#34;:&#34;pull&#34;,&#34;website&#34;:&#34;maintain&#34;}<br>
   <b>defined</b>: <a href="https://github.com/terranix/terranix-module-github/tree/main/modulemodule/teams.nix">module/teams.nix</a><br>
   <b>description</b>: A list of Github repositories, belonging to this team.
 You can use `github.repositories.&lt;name&gt;.teams`

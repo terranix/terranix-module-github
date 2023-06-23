@@ -252,13 +252,12 @@ in {
           };
 
           teams = mkOption {
-            type = listOf str;
-            default = [ ];
+            type = attrsOf (enum [ "pull" "triage" "push" "maintain" "admin" ]);
+            default = { };
             description = ''
               list of teams this repository belongs to.
               convenience function, which appends this repository to github.teams;
             '';
-            example = "main";
           };
 
           extraConfig = mkOption {
@@ -288,13 +287,19 @@ in {
         } // value.extraConfig)
       cfg);
 
-    github.teams =
-      let
-        team_for_repositories = zipAttrs (flatten (mapAttrsToList
-          (_: value: (map (team: { ${team} = value.name; }) value.teams))
-          cfg));
+    resource.github_team_repository =
+      let mergeAll = function: mkMerge (flatten (mapAttrsToList function cfg));
       in
-      mapAttrs (_: repositories: { inherit repositories; })
-        team_for_repositories;
+      mergeAll (repositoryName: { teams, ... }:
+        map
+          ({ name, value }: {
+            "${name}_team_repository_${repositoryName}" = {
+              team_id = "\${github_team.${name}.id}";
+              repository = repositoryName;
+              permission = value;
+            };
+          })
+          (mapAttrsToList nameValuePair teams)
+      );
   }];
 }

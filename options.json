@@ -843,9 +843,8 @@
         "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/repositories.nix"
       }
     ],
-    "default": [],
+    "default": {},
     "description": "list of teams this repository belongs to.\nconvenience function, which appends this repository to github.teams;\n",
-    "example": "main",
     "loc": [
       "github",
       "repositories",
@@ -853,7 +852,7 @@
       "teams"
     ],
     "readOnly": false,
-    "type": "list of strings"
+    "type": "attribute set of one of \"pull\", \"triage\", \"push\", \"maintain\", \"admin\"s"
   },
   "github.repositories.<name>.template": {
     "declarations": [
@@ -1114,12 +1113,12 @@
         "url": "https://github.com/terranix/terranix-module-github/tree/main/modulemodule/teams.nix"
       }
     ],
-    "default": [],
+    "default": {},
     "description": "A list of Github repositories, belonging to this team.\nYou can use `github.repositories.<name>.teams`\nalternatively to append you managed repository to a team.\n",
-    "example": [
-      "terranix",
-      "website"
-    ],
+    "example": {
+      "terranix": "pull",
+      "website": "maintain"
+    },
     "loc": [
       "github",
       "teams",
@@ -1127,6 +1126,6 @@
       "repositories"
     ],
     "readOnly": false,
-    "type": "list of strings"
+    "type": "attribute set of one of \"pull\", \"triage\", \"push\", \"maintain\", \"admin\"s"
   }
 }
